@@ -1,0 +1,37 @@
+using System.ComponentModel;
+
+namespace WpfApp_random_testing.ViewModels
+{
+    public class LoginPageViewModel : INotifyPropertyChanged
+    {
+        private string _username;
+        private string _password;
+
+        public string Username
+        {
+            get => _username;
+            set
+            {
+                _username = value;
+                OnPropertyChanged(nameof(Username));
+            }
+        }
+
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                _password = value;
+                OnPropertyChanged(nameof(Password));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+    }
+}
